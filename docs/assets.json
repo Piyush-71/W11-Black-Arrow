@@ -1,0 +1,51 @@
+{
+  "generator": "OpenAI built-in image generation (fallback)",
+  "higgsfield": {
+    "modelInspected": "gpt_image_2",
+    "settings": {
+      "aspect_ratio": "16:9",
+      "resolution": "2k",
+      "quality": "high"
+    },
+    "attempted": true,
+    "result": "Requires basic plan or higher.",
+    "generatedAssets": 0
+  },
+  "assets": [
+    {
+      "file": "public/media/w11/hero/black-arrow.webp",
+      "usage": [
+        "Hero",
+        "Championship"
+      ],
+      "source": "exec-aa205528-3ded-42d9-8105-2dcc3b525989.png",
+      "prompt": "Premium photorealistic automotive campaign still. A historically accurate 2020 Mercedes F1 W11-style Formula One car, glossy near-black carbon body, thin restrained silver details and a single PETRONAS turquoise ribbon along lower sidepod, complex 2020 narrow front wing and bargeboards, 13-inch black slick tyres and halo, NOT a 2022 ground effect car. No sponsor lettering, no logos, no words, no watermarks anywhere. Dramatic very low front three-quarter camera, nose points toward lower left, rear to right. Full car visible spanning approximately x=18% to 92%, y=39% to 82% of image. Nearly black endless automotive studio, black subtly reflective floor, a broad faint pool of neutral overhead light, elegant pale rim light traces nose, tyre edges, cockpit and rear wing; a tiny turquoise reflection on floor. Upper 35 percent of frame is empty charcoal black negative space. Car is striking and beautifully legible, not swallowed by shadow. Deep blacks, cinematic commercial photography, 85mm lens, extremely fine material detail, impeccable realistic wheel geometry. Restrained premium motorsport mood."
+    },
+    {
+      "file": "public/media/w11/machine/side-profile.webp",
+      "usage": [
+        "Origin",
+        "Aerodynamics",
+        "Legacy"
+      ],
+      "source": "exec-6807a0d5-a07b-4a07-98a4-6478a971a44d.png",
+      "prompt": "Use case: product-mockup. Create one photorealistic 16:9 landscape studio photograph of a 2020 Mercedes F1 W11-inspired black Formula One racing car, perfectly exact flat SIDE PROFILE, nose pointing LEFT, rear on RIGHT, full vehicle visible. Long narrow 2020 chassis, 13-inch black slick tyres, complex front wing, bargeboards, halo, delicate suspension, tall rear wing. Gloss black carbon with thin turquoise strip on lower sidepods and a few restrained silver highlights. No words, no logos, no sponsors, no invented text. Nearly black infinite studio with a matte charcoal floor, superb realistic cinematic silver edge lighting making aerodynamic forms readable. Car spans x=10% to90%, vertically sits y=42% to75%, lots of dark negative space above. Premium automotive engineering editorial, fine carbon fibre materials, no bright background, no people. Asset for engineering explainer and airflow overlay."
+    },
+    {
+      "file": "public/media/w11/machine/engineering.webp",
+      "usage": [
+        "Machine"
+      ],
+      "source": "exec-3fcd56e1-6b17-4019-adff-c4130d35d909.png",
+      "prompt": "Use case: product-mockup. One premium photorealistic automotive engineering studio photograph, landscape 16:9. A 2020 Mercedes-AMG W11-inspired black Formula One race car from elevated FRONT three-quarter angle, camera overhead at 40 degrees, entire car visible, long nose points toward LEFT LOWER corner and rear toward RIGHT UPPER corner. 2020 narrow nose, intricate multilayer front wing, exposed 13-inch slick tyres, halo and complex bargeboards, sidepods, rear wing, intricate rear suspension. Near-black carbon, thin turquoise sidepod ribbon, silver edge accents. An empty seamless almost black studio, car well lit with long precise overhead softboxes revealing aerodynamic surfaces, museum-like engineering photography, no diagrams, no labels, no sponsor letters, no words, no logos, no people. Car centered occupies 85% width; all wheels anatomically correct, luxurious technical aesthetic."
+    },
+    {
+      "file": "public/media/w11/cockpit/driver-view.webp",
+      "usage": [
+        "Cockpit"
+      ],
+      "source": "exec-230b2b34-8f71-4398-9156-a0b84ca66d03.png",
+      "prompt": "Use case: product-mockup. Asset type: premium cinematic interactive documentary background, 16:9 landscape. Photorealistic close view looking into the cockpit of a black 2020 Formula One racing car inspired by Mercedes W11. Center composition with sculptural carbon fibre butterfly steering wheel occupying x=30% to70%, y=35% to75%, complex physical buttons, rotary switches, short multicolour LED strip and a blank dark central rectangular screen. No words, no labels, no digits, no logos, no text anywhere. Black carbon fibre halo curves overhead framing the scene; titanium fasteners and tactile black rubber grips. Very dark studio, controlled neutral silver rim light, tiny muted turquoise highlights, shallow depth of field, exquisite carbon weave detail, premium macro commercial photography. No driver, no hands. Clear instrument center for real HTML overlay, lots of dark breathing space at upper quarter. Restrained motorsport luxury editorial photography."
+    }
+  ]
+}
