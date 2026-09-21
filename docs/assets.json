@@ -47,5 +47,16 @@
       "source": "exec-230b2b34-8f71-4398-9156-a0b84ca66d03.png",
       "prompt": "Use case: product-mockup. Asset type: premium cinematic interactive documentary background, 16:9 landscape. Photorealistic close view looking into the cockpit of a black 2020 Formula One racing car inspired by Mercedes W11. Center composition with sculptural carbon fibre butterfly steering wheel occupying x=30% to70%, y=35% to75%, complex physical buttons, rotary switches, short multicolour LED strip and a blank dark central rectangular screen. No words, no labels, no digits, no logos, no text anywhere. Black carbon fibre halo curves overhead framing the scene; titanium fasteners and tactile black rubber grips. Very dark studio, controlled neutral silver rim light, tiny muted turquoise highlights, shallow depth of field, exquisite carbon weave detail, premium macro commercial photography. No driver, no hands. Clear instrument center for real HTML overlay, lots of dark breathing space at upper quarter. Restrained motorsport luxury editorial photography."
     }
-  ]
+  ],
+  "audio": {
+    "file": "public/media/w11/audio/trackside-ambience.m4a",
+    "title": "Formula 1 racing",
+    "creator": "LordFluffeh",
+    "source": "https://freesound.org/people/LordFluffeh/sounds/478546/",
+    "download": "https://cdn.freesound.org/previews/478/478546_10244830-hq.mp3",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "processing": "Stereo 44.1 kHz AAC, 128 kbps; 85 Hz high-pass and 3200 Hz low-pass; 1.2-second fade-in and 1.8-second fade-out; peak normalized to -12 dBFS before encoding. Playback volume 0.35.",
+    "context": "Illustrative trackside racing ambience, not a W11 recording."
+  }
 }

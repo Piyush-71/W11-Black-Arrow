@@ -30,7 +30,7 @@ Server-rendered editorial sections keep the full story in HTML. Client component
 
 ## Main components
 
-- `Navigation`: native fullscreen dialog, explicit focus wrap, Escape dismissal, focus restoration, skip link and opt-in synthesized ambient sound.
+- `Navigation`: native fullscreen dialog, explicit focus wrap, Escape dismissal, focus restoration, skip link and opt-in recorded trackside racing ambience.
 - `Hero`: critical full-screen car image, editorial W11 lockup, metadata and entry/scroll reveal.
 - `Origin`: 2020 context, 13 wins / 15 poles / seventh consecutive title and the meaning behind the black livery.
 - `Machine`: seven selectable car points, spatial dimming, animated connector and matching touch/keyboard selectors.
@@ -52,7 +52,7 @@ Server-rendered editorial sections keep the full story in HTML. Client component
 5. **Season**: at widths >=900px and heights >=700px, a viewport-sized scene is pinned for 3,000px of vertical travel. The race track translates horizontally. React state changes only when the active round changes, never on every animation frame. Keyboard/race-picker navigation maps the selected round back to scroll position.
 6. **Legacy**: the side-profile car fades into black as the closing section is traversed; the record and final statement remain readable.
 
-GSAP contexts and matchMedia scopes are reverted on cleanup. The GSAP ticker callback, Lenis instance, mutation/intersection observers and audio context are removed or closed on unmount. A live reduced-motion switch removes the season pin and restores the untransformed track. SVG motion is CSS-driven, suspended offscreen, and disabled for reduced motion.
+GSAP contexts and matchMedia scopes are reverted on cleanup. The GSAP ticker callback, Lenis instance, mutation/intersection observers are removed on unmount; audio playback is paused. A live reduced-motion switch removes the season pin and restores the untransformed track. SVG motion is CSS-driven, suspended offscreen, and disabled for reduced motion.
 
 ## Generated media and provenance
 
@@ -69,6 +69,8 @@ Four custom stills were generated with the built-in OpenAI image generator as th
 
 The four WebP files total approximately 420 KiB. Full generation prompts, original generated filenames and fallback provenance are in `docs/assets.json`. The planned roles are in `docs/MEDIA-PLAN.md`. Images contain no generated sponsor typography; all site labels are real HTML/SVG.
 
+The opt-in sound uses [Formula 1 racing by LordFluffeh](https://freesound.org/people/LordFluffeh/sounds/478546/) under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). The local 29-second AAC loop has softened high frequencies, a quiet peak ceiling, and faded edges. It illustrates trackside racing atmosphere; it is not a recording of the W11. Audio is fetched only after playback is requested.
+
 ## Performance decisions
 
 - Four reusable WebP masters; Next Image serves responsive variants and negotiates AVIF/WebP.
@@ -77,7 +79,7 @@ The four WebP files total approximately 420 KiB. Full generation prompts, origin
 - Self-hosted Latin subsets of Barlow, Barlow Condensed and IBM Plex Mono. No Google Fonts network dependency.
 - Later chapters have independent dynamic chunks while retaining server rendering.
 - No video download, real-time 3D scene, continuous React scroll updates or fullscreen particle engine.
-- Flow animation pauses when out of view, and audio starts only after an explicit click at quiet volume; it suspends when the tab is hidden.
+- Flow animation pauses when out of view, and audio starts only after an explicit click at quiet volume; it pauses when the tab is hidden.
 
 ## Mobile and accessibility
 

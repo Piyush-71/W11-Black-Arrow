@@ -8,32 +8,35 @@ export function Navigation() {
   const menuButton = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
   const [sound, setSound] = useState(false);
-  const audio = useRef<AudioContext | null>(null);
+  const audio = useRef<HTMLAudioElement>(null);
+  const [soundError, setSoundError] = useState(false);
 
   useEffect(() => {
-    const onVisibility = () => { if (document.hidden) { void audio.current?.suspend(); setSound(false); } };
+    const player = audio.current;
+    if (player) player.volume = 0.35;
+    const onVisibility = () => { if (document.hidden) player?.pause(); };
     document.addEventListener('visibilitychange', onVisibility);
-    return () => { document.removeEventListener('visibilitychange', onVisibility); void audio.current?.close(); };
+    return () => { document.removeEventListener('visibilitychange', onVisibility); player?.pause(); };
   }, []);
 
   function close() { dialog.current?.close(); }
   async function toggleSound() {
-    if (!audio.current) {
-      const ctx = new AudioContext();
-      const gain = ctx.createGain();
-      gain.gain.value = 0.018;
-      gain.connect(ctx.destination);
-      [55, 82.4, 110].forEach((frequency) => {
-        const oscillator = ctx.createOscillator();
-        oscillator.frequency.value = frequency;
-        oscillator.type = 'sine';
-        oscillator.connect(gain);
-        oscillator.start();
-      });
-      audio.current = ctx;
+    const player = audio.current;
+    if (!player) return;
+    setSoundError(false);
+    if (!player.paused) {
+      player.pause();
+      return;
     }
-    if (sound) await audio.current.suspend(); else await audio.current.resume();
-    setSound(!sound);
+    try {
+      await player.play();
+      if (document.hidden) player.pause();
+    } catch (error) {
+      // A second click or a hidden tab can cancel a pending play request.
+      if (!(error instanceof DOMException && error.name === 'AbortError')) {
+        setSoundError(true);
+      }
+    }
   }
 
   return <>
@@ -57,6 +60,8 @@ export function Navigation() {
       </div>
       <p className="menu-disclaimer mono">INDEPENDENT FAN EXPERIENCE — NOT AFFILIATED WITH MERCEDES-BENZ OR FORMULA 1.</p>
     </dialog>
-    <button className="sound-toggle" onClick={() => void toggleSound()} aria-pressed={sound} aria-label={`${sound ? 'Mute' : 'Play'} quiet synthesized ambient sound`}>SOUND <span className={sound ? 'sound-dot on' : 'sound-dot'} /> {sound ? 'ON' : 'OFF'}</button>
+    <audio ref={audio} src="/media/w11/audio/trackside-ambience.m4a" preload="none" loop onPlaying={() => setSound(true)} onPause={() => setSound(false)} onError={() => { setSound(false); setSoundError(true); }} />
+    <button className="sound-toggle" onClick={() => void toggleSound()} aria-pressed={sound} aria-label={`${sound ? 'Mute' : 'Play'} racing ambience`}>SOUND <span className={sound ? 'sound-dot on' : 'sound-dot'} /> {soundError ? 'RETRY' : sound ? 'ON' : 'OFF'}</button>
+    {soundError && <span className="sr-only" role="status">Sound could not play. Try again using the sound button.</span>}
   </>;
 }

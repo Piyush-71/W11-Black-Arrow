@@ -59,9 +59,15 @@ test('engineering controls, drivers, race picker and audio work',async({page})=>
   await expect(page.locator('.race-spotlight h3')).toHaveText('A seventh world title.');
   await page.getByRole('button',{name:'Next race',exact:true}).click();
   await expect(page.locator('.race-spotlight')).toContainText('The thirteenth victory.');
-  await page.getByRole('button',{name:'Play quiet synthesized ambient sound',exact:true}).click();
-  await expect(page.getByRole('button',{name:'Mute quiet synthesized ambient sound'})).toHaveAttribute('aria-pressed','true');
-  await page.getByRole('button',{name:'Mute quiet synthesized ambient sound'}).click();
+  const audio = page.locator('audio');
+  expect(await audio.evaluate((element:HTMLAudioElement)=>element.paused)).toBe(true);
+  await page.getByRole('button',{name:'Play racing ambience',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Mute racing ambience'})).toHaveAttribute('aria-pressed','true');
+  await expect.poll(()=>audio.evaluate((element:HTMLAudioElement)=>element.currentTime)).toBeGreaterThan(0);
+  expect(await audio.evaluate((element:HTMLAudioElement)=>element.loop)).toBe(true);
+  await page.getByRole('button',{name:'Mute racing ambience'}).click();
+  await expect(page.getByRole('button',{name:'Play racing ambience'})).toHaveAttribute('aria-pressed','false');
+  expect(await audio.evaluate((element:HTMLAudioElement)=>element.paused)).toBe(true);
 });
 
 test('menu traps focus, Escape restores focus, links reach chapters',async({page})=>{
